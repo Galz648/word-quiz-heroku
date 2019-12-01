@@ -9,6 +9,6 @@ app = Flask(__name__)
 
 @app.route('/api/word/define')
 def define():
-    
+    return 'hello heroku!'
 if __name__ == "__main__":
     app.run()
