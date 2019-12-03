@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "81cb5d5f0b11719d8d9c5ec9cc683fdcf959c652fda256d5552a82d0f459a99c"
+            "sha256": "1dfb25b24d697ba0d4ccc014de9cb3e5c5efe8d0d2f9adbd454ab5669d7937ec"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -92,6 +92,13 @@
                 "sha256:e5f4a1f98b52b18a93da705a7458e55afb26f32bff83ff5d19189f92462d65c4"
             ],
             "version": "==0.16.0"
+        },
+        "wordnik-py3": {
+            "hashes": [
+                "sha256:e4a55aeab9d546cb0b76afd6b853a60f96a5553542f89c29b4fcf69dbc237a8b"
+            ],
+            "index": "pypi",
+            "version": "==2.1.2"
         }
     },
     "develop": {}
