@@ -9,7 +9,7 @@ wordApi = WordApi.WordApi(client)
 environ["FLASK_APP"] = __name__
 environ["FLASK_DEBUG"] = "1"
 app = Flask(__name__)
-
+app.DEBUG = True
 
 @app.route('/api/word/define')
 def define():
@@ -21,23 +21,26 @@ def define():
     except Exception as e:
         abort(404)
     else:
-        return f'hello heroku! this is my word: {word} - definition: {definition.text}' 
+        jsonify(definition=definition) 
     
 
 @app.route('/api/word/related')
 def related():
     word = request.args['word']
-    related = wordApi.getRelatedWords(word=word)
-    print(related)
+    related = wordApi.getRelatedWords(word=word)[0].words
+    print(related.words)
     print(dir(related))
-    return related
+    return jsonify(related=)
     
     
     
 @app.route('/api/word/sentences')
 def sentences():
+    limit = 3
     word = request.args['word']
-    return 'sentences'
+    examples_list = [example.text for example in wordApi.getExamples(word=word, limit=limit).examples]
+    print(f'examples_list: {examples_list}')
+    return jsonify(sentences=examples_list)
 
 
 if __name__ == "__main__":
