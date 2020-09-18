@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, abort
 from config import wordnikApiKey
 from os import environ
+from flask_cors import CORS
+
 
 from wordnik import *
 apiUrl = 'http://api.wordnik.com/v4'
@@ -9,6 +11,7 @@ wordApi = WordApi.WordApi(client)
 environ["FLASK_APP"] = __name__
 environ["FLASK_DEBUG"] = "1"
 app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/')
 def home():
