@@ -1,15 +1,11 @@
-Package      Version
------------- -------------------
-certifi      2020.6.20
-click        7.1.2
-Flask        1.1.2
-Flask-Cors   3.0.9
-itsdangerous 1.1.0
-Jinja2       2.11.2
-MarkupSafe   1.1.1
-pip          20.2.3
-setuptools   49.6.0.post20200917
-six          1.15.0
-Werkzeug     1.0.1
-wheel        0.35.1
-wordnik-py3  2.1.2
+certifi==2020.6.20
+click==7.1.2
+Flask==1.1.2
+Flask-Cors==3.0.9
+gunicorn==20.0.4
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+six==1.15.0
+Werkzeug==1.0.1
+wordnik-py3==2.1.2
