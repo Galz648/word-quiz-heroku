@@ -1,3 +1,0 @@
-[submodule "flask-cors"]
-	path = flask-cors
-	url = https://github.com/corydolphin/flask-cors
