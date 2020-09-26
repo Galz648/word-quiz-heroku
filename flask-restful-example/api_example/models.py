@@ -2,9 +2,9 @@
 from . import db
 
 
-class User(db.Model):
+class UserModel(db.Model):
     """Data model for user accounts."""
-    #__table_args__ = {'extend_existing': True}
+    __table_args__ = {'extend_existing': True}
     __tablename__ = 'user'
     
     user_id = db.Column(
@@ -16,11 +16,11 @@ class User(db.Model):
         db.String(20),
         index=True,
         nullable=False, 
-        unique=True
+        unique=False
         )
     
     words = db.relationship(
-        'Word', 
+        'WordModel', 
         backref='user',
         )
     
@@ -39,16 +39,22 @@ class User(db.Model):
     )
     
     def __repr__(self):
-    	return f"user info: user_id = {self.user_id}, email = {self.email}, words = {self.words}, admin = {self.admin}, created = {self.created})"
+        return f"user info: user_id = {self.user_id}, email = {self.email}, words = {self.words}, admin = {self.admin}, created = {self.created})"
+ 
+        @property
+        def serialize(self):
+            """Return object data in easily serializable format"""
+            return {
+                'email' : email
+            }
  
  
  
- 
-class Word(db.Model):
+class WordModel(db.Model):
     
     """Data model for words"""
-    #__table_args__ = {'extend_existing': True}
-    #__tablename__ = 'words' 
+    __table_args__ = {'extend_existing': True}
+    __tablename__ = 'word' 
     id = db.Column(
         db.Integer, 
         primary_key=True
